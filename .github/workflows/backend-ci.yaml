@@ -32,7 +32,7 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
-        run: pipenv install --dev
+        run: pipenv install
 
       - name: Run lint
         run: pipenv run lint
@@ -58,7 +58,7 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
-        run: pipenv install --dev
+        run: pipenv install
 
       - name: Run tests
         run: pipenv run test
