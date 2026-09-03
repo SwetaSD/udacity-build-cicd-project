@@ -76,6 +76,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.ASIA4AJRFIDMX536YB4G}}
           aws-secret-access-key: ${{ secrets.P/kysjEvBpw9d/ibFS/s2TBtEjJNZMhkw+FPA3A0}}
+          aws-session-token: ${{ secrets.IQoJb3JpZ2luX2VjEA0aCXVzLXdlc3QtMiJGMEQCIBat82MvfG3uwLGlZ9oXWPVtbCN6GBEMWqxZO/uQmq2aAiBmfaoOKVOI5CkQqSeHhSnOz4A8te4rmwUU5SZTA5dCJirHAgjW//////////8BEAMaDDgyNTI3MzY5NjQ3MyIMbQWng416OVjHR8geKpsCUfQzYhELCSs/udd0IdpiPMX2/dklBo/5flR6zFFDbfL4tnhqAR7bSfifmoIq4OzhyGvhryVzr2kYCLPqPnH0QLJb0rlIRBDVPfc0naZ7cl9TBAEy/XtRgUvTR50CWvJnYcRwhZNurbJzLwwMgX7IwpRn2x4q5QslK56165NT884UkHg+ceD7pv1In8VfzHIc8har6n9QQEQ1OFdILFuz4ca2IFmA23yEkpPDYdfU4fVkiLjaFPA7+cP3Ieb3EkbJJAPL6GAuqkorgBWIeIchlkIjeH1DQzaVe+WEUXRPU2eWSRslDOeUdg4AzKdnuHAvxGbLOzxpyJJYwFD/lnyRZjgCZ8NW8+jkbOQ6tlNPakuw+xL52teCmus0BDC07ePUBjqeAXY2Vre7cKjH9gYir54X4YIxj/viRfZN4XvS3oNDPwdg7XatX+7MGuGYx0t4UnQd+E5lG9OdB7shAmtuug0659ZMKnFaQSU+XMLZ1fGTB5vC5Ffsc5YRKPfP69WmzZ2KQBAplXsV5p5Ct2rHKH1rad8Quj7bzpa5olniDexgdNALaED7MuOF8mjqzHjqaMmgoz1wiAE44mML2eWAxIfi}}
           aws-region: ${{ env.us-east-1}}
 
       - name: Login to Amazon ECR
@@ -106,6 +107,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.ASIA4AJRFIDMX536YB4G}}
           aws-secret-access-key: ${{ secrets.P/kysjEvBpw9d/ibFS/s2TBtEjJNZMhkw+FPA3A0}}
+          aws-session-token: ${{ secrets.IQoJb3JpZ2luX2VjEA0aCXVzLXdlc3QtMiJGMEQCIBat82MvfG3uwLGlZ9oXWPVtbCN6GBEMWqxZO/uQmq2aAiBmfaoOKVOI5CkQqSeHhSnOz4A8te4rmwUU5SZTA5dCJirHAgjW//////////8BEAMaDDgyNTI3MzY5NjQ3MyIMbQWng416OVjHR8geKpsCUfQzYhELCSs/udd0IdpiPMX2/dklBo/5flR6zFFDbfL4tnhqAR7bSfifmoIq4OzhyGvhryVzr2kYCLPqPnH0QLJb0rlIRBDVPfc0naZ7cl9TBAEy/XtRgUvTR50CWvJnYcRwhZNurbJzLwwMgX7IwpRn2x4q5QslK56165NT884UkHg+ceD7pv1In8VfzHIc8har6n9QQEQ1OFdILFuz4ca2IFmA23yEkpPDYdfU4fVkiLjaFPA7+cP3Ieb3EkbJJAPL6GAuqkorgBWIeIchlkIjeH1DQzaVe+WEUXRPU2eWSRslDOeUdg4AzKdnuHAvxGbLOzxpyJJYwFD/lnyRZjgCZ8NW8+jkbOQ6tlNPakuw+xL52teCmus0BDC07ePUBjqeAXY2Vre7cKjH9gYir54X4YIxj/viRfZN4XvS3oNDPwdg7XatX+7MGuGYx0t4UnQd+E5lG9OdB7shAmtuug0659ZMKnFaQSU+XMLZ1fGTB5vC5Ffsc5YRKPfP69WmzZ2KQBAplXsV5p5Ct2rHKH1rad8Quj7bzpa5olniDexgdNALaED7MuOF8mjqzHjqaMmgoz1wiAE44mML2eWAxIfi}}
           aws-region: ${{ env.us-east-1}}
 
       - name: Update kubeconfig
