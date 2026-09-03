@@ -78,6 +78,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
+       - name: Check AWS access
+        run: |
+          aws sts get-caller-identity
+          aws ecr get-login-password --region us-east-1 >/dev/null
+          echo "GitHub Actions ECR access works"
 
       - name: Login to Amazon ECR
         id: login-ecr
