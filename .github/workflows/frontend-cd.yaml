@@ -123,3 +123,20 @@ jobs:
         run: |
           kustomize edit set image frontend=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           kustomize build | kubectl apply -f -
+
+      - name: Verify Kubernetes deployment
+        run: |
+          kubectl rollout status deploy --timeout=180s || true
+          echo "----- Logging - kubectl get all -----"
+          kubectl get all
+          echo "----- Logging - kubectl describe deployment -----"
+          kubectl describe deploy frontend
+
+      - name: Verify Frontend ECR image
+        run: |
+          echo "----- Logging - Frontend ECR image details -----"
+          AWS_PAGER="" aws ecr describe-images \
+            --repository-name frontend \
+            --region $AWS_REGION \
+            --query 'sort_by(imageDetails,&imagePushedAt)[-1]' \
+            --output table
