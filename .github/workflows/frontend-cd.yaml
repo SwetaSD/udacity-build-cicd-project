@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'starter/frontend/**'
+
   workflow_dispatch:
 
 env:
@@ -17,6 +18,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: starter/frontend
@@ -34,6 +36,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: starter/frontend
@@ -50,9 +53,7 @@ jobs:
 
   build:
     name: Build and Push
-    needs:
-      - lint
-      - test
+    needs: [lint, test]
     runs-on: ubuntu-latest
 
     steps:
@@ -74,9 +75,12 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
+          REACT_APP_MOVIE_API_URL: http://a528cd04e192e46dea7be640e47cd086-1989402419.us-east-1.elb.amazonaws.com
         working-directory: starter/frontend
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build \
+            --build-arg REACT_APP_MOVIE_API_URL=$REACT_APP_MOVIE_API_URL \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
   deploy:
